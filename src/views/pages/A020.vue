@@ -1,25 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-
-// 生成的文件数量和文件名
-const fileCount = 20;
-const fileNamePrefix = "A";
-const outputFolder = "./src/views/pages"; // 指定输出文件夹路径
-
-// 判断文件夹是否存在，如果不存在则创建
-if (!fs.existsSync(outputFolder)) {
-  fs.mkdirSync(outputFolder, { recursive: true });
-}
-
-// 生成 Vue 文件
-for (let i = 1; i <= fileCount; i++) {
-  const fileName = `${fileNamePrefix}${i.toString().padStart(3, "0")}.vue`;
-  const filePath = path.join(outputFolder, fileName); // 拼接输出文件路径
-
-  // 生成 Vue 文件的内容
-  const vueTemplate = `<template>
+<template>
   <div>
-    <h1>${fileName}</h1>
+    <h1>A020.vue</h1>
     <el-table :data="tableData" border show-summary style="width: 100%">
       <el-table-column prop="id" label="ID" width="180"> </el-table-column>
       <el-table-column prop="name" label="姓名"> </el-table-column>
@@ -393,10 +374,4 @@ margin: 0 10px;
 a {
 color: #42b983;
 }
-</style>`;
-
-  fs.writeFile(filePath, vueTemplate, (err) => {
-    if (err) throw err;
-    console.log(`${fileName} created successfully.`);
-  });
-}
+</style>

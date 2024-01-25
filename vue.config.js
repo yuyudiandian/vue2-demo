@@ -10,7 +10,6 @@ module.exports = defineConfig({
     },
   },
   configureWebpack: (config) => {
-    const production = config.mode === "production";
     config.output.filename = `js/[name].js`;
     config.output.chunkFilename = `js/[name].js`;
     config.output.libraryTarget = "umd";
@@ -32,6 +31,15 @@ module.exports = defineConfig({
           priority: 0, // 优先级
           reuseExistingChunk: true, // 是否重用已有chunk
           enforce: true,
+        },
+        pages: {
+          name: "pages",
+          test: /[\\/]src[\\/]views[\\/]pages[\\/]/,
+          priority: -10,
+          minChunks: 1,
+          chunks: "all",
+          enforce: true,
+          reuseExistingChunk: true,
         },
         common: {
           name: "commonScripts-app",
