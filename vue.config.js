@@ -17,12 +17,6 @@ module.exports = defineConfig({
     config.optimization.runtimeChunk = true;
     config.optimization.minimize = false;
     config.optimization.splitChunks = {
-      chunks: "async",
-      minSize: 30000,
-      maxSize: 1024,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
       cacheGroups: {
         // 拆分模块
         styles: {
