@@ -25,31 +25,6 @@ function registerRoutes() {
   return routes;
 }
 
-// // 自动注册路由
-// function registerRoutes() {
-//   const routes = [];
-
-//   // 读取 components 文件夹下的所有 Vue 页面
-//   const componentFiles = import.meta.glob('../components/*.vue');
-//   for (const path in componentFiles) {
-//     const componentPath = componentFiles[path]();
-//     const component = componentPath.default || componentPath;
-
-//     // 提取文件名作为路由路径
-//     let componentName = path.match(/\.\/(.*)\.vue$/)[1];
-//     componentName = componentName.split('/').pop().replace(/\.\w+$/, '');
-//     const route = {
-//       path: `/${componentName}`,
-//       name: componentName,
-//       component: () => import(`../components/${componentName}.vue`)
-//     };
-
-//     routes.push(route);
-//   }
-//   console.log(routes)
-//   return routes;
-// }
-
 const routes = [
   {
     path: '/',
