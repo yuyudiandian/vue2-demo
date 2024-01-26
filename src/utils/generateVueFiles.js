@@ -5,6 +5,7 @@ const path = require("path");
 const fileCount = 20;
 const fileNamePrefix = "A";
 const outputFolder = "./src/views/pages"; // 指定输出文件夹路径
+const fileNames = []; //  用于存储文件名的数组
 
 // 判断文件夹是否存在，如果不存在则创建
 if (!fs.existsSync(outputFolder)) {
@@ -14,6 +15,7 @@ if (!fs.existsSync(outputFolder)) {
 // 生成 Vue 文件
 for (let i = 1; i <= fileCount; i++) {
   const fileName = `${fileNamePrefix}${i.toString().padStart(3, "0")}.vue`;
+  fileNames.push(fileName.split(".")[0]);
   const filePath = path.join(outputFolder, fileName); // 拼接输出文件路径
 
   // 生成 Vue 文件的内容
@@ -400,3 +402,14 @@ color: #42b983;
     console.log(`${fileName} created successfully.`);
   });
 }
+
+// 写入文件名数组到单独的js文件中
+const jsFilePath = path.join(__dirname, "fileName.js");
+const fileNamesContent = `
+const fileNames = ${JSON.stringify(fileNames)}
+export default fileNames`;
+
+fs.writeFile(jsFilePath, fileNamesContent, (err) => {
+  if (err) throw err;
+  console.log(`File names array created successfully in ${jsFilePath}.`);
+});

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import fileNames from '../utils/fileName.js'
 
 Vue.use(VueRouter)
 
@@ -8,15 +9,11 @@ Vue.use(VueRouter)
 function registerRoutes() {
   const routes = [];
 
-  // 读取 components 文件夹下的所有 Vue 页面
-  const requireComponent = require.context('../views/pages', true, /\.vue$/);
-  requireComponent.keys().forEach(fileName => {
-    // 提取文件名作为路由路径
-    const componentName = fileName.split('/').pop().replace(/\.\w+$/, '');
+  fileNames.forEach(fileName => {
     const route = {
-      path: `/${componentName}`,
-      name: componentName,
-      component: () => import(/* webpackChunkName: "[request]" */ `../views/pages/${componentName}.vue`)
+      path: `/${fileName}`,
+      name: fileName,
+      component: () => import(/* webpackChunkName: "[request]" */ `../views/pages/${fileName}.vue`)
     };
 
     routes.push(route);
