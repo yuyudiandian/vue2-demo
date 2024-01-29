@@ -11,9 +11,6 @@ function registerRoutes() {
   // 读取 components 文件夹下的所有 Vue 页面
   const componentFiles = import.meta.glob('../views/pages/*.vue');
   for (const path in componentFiles) {
-    const componentPath = componentFiles[path]();
-    const component = componentPath.default || componentPath;
-
     // 提取文件名作为路由路径
     let componentName = path.match(/\.\/(.*)\.vue$/)[1];
     componentName = componentName.split('/').pop().replace(/\.\w+$/, '');
