@@ -4737,6 +4737,11 @@ color: #42b983;
   });
 }
 
+
+// 判断文件夹是否存在，如果不存在则创建
+if (!fs.existsSync(path.join(__dirname, "/fileName")) ) {
+  fs.mkdirSync(path.join(__dirname, "/fileName"), { recursive: true });
+}
 // 写入文件名数组到单独的js文件中
 const jsFilePath = path.join(__dirname, "/fileName/index.js");
 const fileNamesContent = `
