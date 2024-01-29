@@ -32,15 +32,15 @@ module.exports = defineConfig({
           reuseExistingChunk: true, // 是否重用已有chunk
           enforce: true,
         },
-        pages: {
-          name: "pages",
-          test: /[\\/]src[\\/]views[\\/]pages[\\/]/,
-          priority: -10,
-          minChunks: 1,
-          chunks: "all",
-          enforce: true,
-          reuseExistingChunk: true,
-        },
+        // pages: {
+        //   name: "pages",
+        //   test: /[\\/]src[\\/]views[\\/]pages[\\/]/,
+        //   priority: -10,
+        //   minChunks: 1,
+        //   chunks: "all",
+        //   enforce: true,
+        //   reuseExistingChunk: true,
+        // },
         common: {
           name: "commonScripts-app",
           test: /[\\/]src[\\/]scripts[\\/]/,
