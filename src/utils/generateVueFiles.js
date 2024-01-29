@@ -4738,7 +4738,7 @@ color: #42b983;
 }
 
 // 写入文件名数组到单独的js文件中
-const jsFilePath = path.join(__dirname, "fileName.js");
+const jsFilePath = path.join(__dirname, "/fileName/index.js");
 const fileNamesContent = `
 const fileNames = ${JSON.stringify(fileNames)}
 export default fileNames`;

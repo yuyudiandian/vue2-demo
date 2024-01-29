@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-/src/views
+/src/views/pages/
+/src/utils/fileName/
 
 # local env files
 .env.local
